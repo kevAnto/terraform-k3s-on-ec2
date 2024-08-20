@@ -1,7 +1,10 @@
 name: Terraform K3s Provisioning
 
 on:
-  workflow_dispatch:
+ push:
+   branches:
+     - "main"
+ # workflow_dispatch:
     inputs:
       action:
         description: "Choose action to perform"
