@@ -19,7 +19,7 @@ resource "aws_instance" "k3s-server" {
   vpc_security_group_ids      = [aws_default_security_group.default-sg.id]
   availability_zone           = var.avail_zone
   associate_public_ip_address = true
-  user_data                   = file("node-server-script.sh")
+  user_data                   = file("k3s-server-script.sh")
   tags = {
     Name = "${var.env_prefix}-server"
   }
