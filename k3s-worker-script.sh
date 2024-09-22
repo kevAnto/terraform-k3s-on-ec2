@@ -7,11 +7,9 @@ echo "Updating and upgrading the system..."
 sudo apt-get update -y
 sudo apt-get upgrade -y
 
-# Install necessary dependencies
-echo "Installing necessary dependencies..."
-sudo apt-get install -y curl
+apt update
+apt install docker.io -y
 
-# Disable swap (K3s requires swap to be disabled)
-echo "Disabling swap..."
-sudo swapoff -a
-sudo sed -i '/ swap / s/^/#/' /etc/fstab
+hostnamectl set-hostname worker-node-1
+echo worker-node-1 > /etc/hostname
+#kubectl delete node worker-node-1

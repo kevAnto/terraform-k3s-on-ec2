@@ -21,12 +21,12 @@ resource "aws_instance" "k3s-Master-server" {
   associate_public_ip_address = true
   user_data                   = file("k3s-server-script.sh")
   tags = {
-    Name = "${var.env_prefix}-server"
+    Name = "${var.env_prefix}-Master"
   }
 }
 # K3s Worker Node Instances (Fixed at 2 instances)
 resource "aws_instance" "k3s-worker" {
-  count                       = 2  # Always start with 2 instances
+  count                       = 1  # Always start with 2 instances
   ami                         = data.aws_ami.latest-ubuntu-image.id
   instance_type               = var.instance_type
   key_name                    = "devops"
