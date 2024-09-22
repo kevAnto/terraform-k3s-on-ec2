@@ -19,3 +19,8 @@ systemctl status docker
 # hostnamectl set-hostname worker-node-1
 # echo worker-node-1 > /etc/hostname
 # kubectl delete node worker-node-1
+
+# curl -sfL https://get.k3s.io | K3S_URL=https://<MasterNodePublicIP>:6443 K3S_TOKEN=<NodeToken> sh -
+# export K3S_URL=https://x.x.x.x:6443
+# K3S_TOKEN=
+# curl -sfL https://get.k3s.io |  sh -

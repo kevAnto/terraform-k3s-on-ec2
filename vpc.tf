@@ -34,6 +34,13 @@ resource "aws_default_route_table" "main-rtb" {
 
 resource "aws_default_security_group" "default-sg" {
   vpc_id = aws_vpc.k3s-vpc.id
+  # Allow all inbound traffic from any source (0.0.0.0/0) on all ports and protocols
+  ingress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"  # "-1" means all protocols
+    cidr_blocks = ["0.0.0.0/0"]
+  }
   ingress {
     from_port   = 22
     to_port     = 22
